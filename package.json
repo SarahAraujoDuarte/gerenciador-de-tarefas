@@ -1,0 +1,23 @@
+{
+  "name": "gerenciador-de-tarefas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SarahAraujoDuarte/gerenciador-de-tarefas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SarahAraujoDuarte/gerenciador-de-tarefas/issues"
+  },
+  "homepage": "https://github.com/SarahAraujoDuarte/gerenciador-de-tarefas#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
