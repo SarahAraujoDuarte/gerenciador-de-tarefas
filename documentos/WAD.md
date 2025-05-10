@@ -17,6 +17,9 @@
 
 O Banco de Dados foi desenvolvido de modo que possa atender as necessidades dos usuásios e aramzenar os dados necessários para o desenvolvimento do sistema de forma assertiva. Assim, na imagem abaixo é possível visualizar o Diagrama Lógico desenvolvido: 
 
+<img src="../assets/modelo_logico.png" alt="Figura 1 - Modelo Lógico" />
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
 
 # <a name="c3"></a>1. Referências
 
