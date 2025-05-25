@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
   foto_perfil TEXT NULL, 
   nome TEXT NOT NULL,
@@ -7,14 +7,16 @@ CREATE TABLE users (
   senha TEXT NOT NULL
 ); 
 
-CREATE TABLE categorias (
+
+
+CREATE TABLE IF NOT EXISTS categorias (
   id SERIAL PRIMARY KEY,
   nome TEXT NOT NULL,
   cor TEXT NOT NULL, 
   criado_em TIMESTAMP DEFAULT NOW ()
   );
 
-CREATE TABLE tasks(
+CREATE TABLE IF NOT EXISTS tasks(
   id SERIAL PRIMARY KEY,
   titulo TEXT NOT NULL, 
   categorias_id INT REFERENCES categorias(id),
@@ -25,29 +27,26 @@ CREATE TABLE tasks(
 );
 
 
-CREATE TABLE users_tasks (
+CREATE TABLE IF NOT EXISTS users_tasks (
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
     task_id INT REFERENCES tasks(id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, task_id)
   );
 
-CREATE TABLE workspaces(
-  id SERIAl PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS workspaces(
+  id SERIAL PRIMARY KEY,
   nome TEXT NOT NULL, 
   descricao TEXT NOT NULL, 
   criado_em TIMESTAMP DEFAULT NOW ()
 );
 
-CREATE TABLE columns (
+CREATE TABLE IF NOT EXISTS columns (
   id SERIAL PRIMARY KEY, 
   workspace_id INT REFERENCES workspaces(id) ON DELETE CASCADE,
   nome TEXT NOT NULL,
   posicao INT NOT NULL
 );
 
-ALTER TABLE tasks
-ADD COLUMN column_id INT REFERENCES columns(id) ON DELETE SET NULL,
-ADD COLUMN workspace_id INT REFERENCES workspaces(id) ON DELETE SET NULL;
 
 SELECT tasks.id, 
        tasks.titulo, 

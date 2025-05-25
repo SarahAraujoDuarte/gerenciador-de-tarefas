@@ -6,7 +6,7 @@ Este projeto trata-se de um sistema de gerenciamento de tarefas que permite aos 
 
 ## 📁 Estrutura de Pastas e Arquivos
 ```
-meu-projeto/
+gerenciador-de-tarefas/
 │
 ├── assets/                # Arquivos públicos como imagens e fontes
 ├── config/                
@@ -45,28 +45,11 @@ bash
     
 bash
 npm install
+    
+3. *Caminho para a execução do projeto:*
 
-    
-3. *Configurar o arquivo .env:*
-    
-Renomeie o arquivo .env.example para .env e configure as variáveis de ambiente necessárias, como as configurações do banco de dados PostgreSQL.
-    
+Para realexecutar o projeto, navegue até a seguinte pasta: gerenciador-de-tarefas/routes no terminal e execute o comando 'node index.js'. Em seguida, abra o navegador e acesse: http://localhost:3000/ para visualizar o projeto em funcionamento. 
 
-Configuração do Banco de Dados
-------------------------------
-
-1. *Criar banco de dados:*
-    
-    Crie um banco de dados PostgreSQL com o nome especificado no seu arquivo .env.
-    
-2. *Executar o script SQL de inicialização:*
-    
-bash
-npm run init-db
-
-    
-Isso criará a tabela users no seu banco de dados PostgreSQL com UUID como chave primária e inserirá alguns registros de exemplo.
-    
 
 Funcionalidades
 ---------------
