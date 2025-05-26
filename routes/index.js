@@ -1,13 +1,21 @@
 const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 3000;
+const router = express.Router();
 
-app.use(express.json());
+const categoriasRoutes = require('./categoriasRoutes');
+const columnsRoutes = require('./columnsRoutes');
+const tasksRoutes = require('./tasksRoutes');
+const workspacesRoutes = require('./workspacesRoutes');
+const userTasksRoutes = require('./userTasksRoutes');
 
-app.get('/', (req, res) => {nod
-  res.send('Servidor está funcionando, boa diva!');
-});
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:3000`);
-});
+router.use('/categorias', categoriasRoutes);
+router.use('/columns', columnsRoutes);
+router.use('/tasks', tasksRoutes);
+router.use('/workspaces', workspacesRoutes);
+router.use('/user-tasks', userTasksRoutes);
+
+module.exports = router;
+
+
+
+

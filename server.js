@@ -1,15 +1,17 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Middleware para processar JSON
+const routes = require('./routes'); 
+
 app.use(express.json());
 
-// Rotas
-const routes = require('./routes/index');
-app.use('/', routes);
+app.use('/api', routes);
 
-// Inicializa o servidor
+app.get('/', (req, res) => {
+  res.send('Servidor está funcionando!');
+});
+
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta 3000`);
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
