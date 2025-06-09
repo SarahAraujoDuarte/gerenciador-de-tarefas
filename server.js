@@ -2,14 +2,21 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const routes = require('./routes'); 
-
+const apiRoutes = require('./routes');                 
+const frontRoutes = require('./routes/frontRoutes');   
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));       
+app.use(express.static('public'));                     
 
-app.use('/api', routes);
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
-app.get('/', (req, res) => {
-  res.send('Servidor está funcionando!');
+app.use('/api', apiRoutes);
+
+app.use('/', frontRoutes);
+
+app.use((req, res) => {
+  res.status(404).send('Página não encontrada!');
 });
 
 app.listen(PORT, () => {

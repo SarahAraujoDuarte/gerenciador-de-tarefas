@@ -1,6 +1,16 @@
 const Workspaces = require('../models/workspacesModel');
 
 const workspacesController = {
+  async renderHome(req, res) {
+    try {
+      const workspaces = await Workspaces.findAll();
+      res.render('home', { workspaces });
+    } catch (error) {
+      console.error('Erro ao carregar a home:', error);
+      res.status(500).send('Erro interno ao carregar a home');
+    }
+  },
+
   async create(req, res) {
     try {
       const workspaceData = req.body;

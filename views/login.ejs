@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Planeja.Ai</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="auth-container">
+      <div class="auth-header">
+        <div class="icon">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <h2>Bem-Vindo(a) de Volta!</h2>
+        <p>Entre na sua conta para continuar</p>
+      </div>
+
+      <form action="/login" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+        
+        <button type="submit" class="btn btn-block">Fazer login</button>
+      </form>
+      
+      <div style="text-align: center; margin-top: 20px;">
+        <p>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
