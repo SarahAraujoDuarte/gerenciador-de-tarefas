@@ -4,36 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Planeja.Ai</title>
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/login.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <div class="auth-container">
-      <div class="auth-header">
-        <div class="icon">
-          <i class="fas fa-user-circle"></i>
-        </div>
-        <h2>Bem-Vindo(a) de Volta!</h2>
-        <p>Entre na sua conta para continuar</p>
+  <div class="login-container">
+    <div class="login-card">
+      <!-- Ícone do usuário -->
+      <div class="user-icon">
+        <i class="fas fa-user"></i>
       </div>
-
-      <form action="/login" method="POST">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="password">Senha</label>
-          <input type="password" id="password" name="password" class="form-control" required>
-        </div>
-        
-        <button type="submit" class="btn btn-block">Fazer login</button>
-      </form>
       
-      <div style="text-align: center; margin-top: 20px;">
-        <p>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></p>
+      <!-- Cabeçalho -->
+      <div class="login-header">
+        <h1>Bem-Vindo(a) de Volta</h1>
+        <p class="subtitle">Entre na sua conta para continuar</p>
+      </div>
+      
+      <!-- Formulário -->
+      <div class="login-form-section">
+        <form class="login-form" action="/login" method="POST">
+          <div class="input-group">
+            <label for="email">E-mail</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope input-icon"></i>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Digite seu email"
+                required
+              >
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label for="password">Senha</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock input-icon"></i>
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Digite sua senha"
+                required
+              >
+            </div>
+          </div>
+          
+          <button type="submit" class="btn-login">Entrar</button>
+        </form>
+        
+        <div class="login-footer">
+          <p>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></p>
+        </div>
       </div>
     </div>
   </div>

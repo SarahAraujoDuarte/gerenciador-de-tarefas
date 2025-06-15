@@ -3,58 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Kanban</title>
-  <link rel="stylesheet" href="/css/styles.css">
+  <title>Home - Planeja.Ai</title>
+  <link rel="stylesheet" href="/css/home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <div class="logo">
-        <img src="/images/logo.png" alt="Kanban Logo">
+  <div class="home-container">
+    <!-- Header -->
+
+    <header class="home-header">
+    <div class="logo">
+        <img src="/img/logo.svg" alt="Logo Planeja.Ai">
       </div>
-      <div class="user-menu">
-        <button class="icon-button">
-          <i class="fas fa-search"></i>
-        </button>
-        <button class="icon-button">
+      
+      <div class="header-actions">
+        <button class="notification-btn" title="Notificações">
           <i class="fas fa-bell"></i>
+          <span class="notification-badge">3</span>
         </button>
-        <button class="icon-button">
-          <i class="fas fa-user-circle"></i>
-        </button>
+        <div class="user-menu">
+          <button class="user-btn" title="Perfil do usuário">
+            <i class="fas fa-user"></i>
+          </button>
+          <div class="user-dropdown">
+            <a href="/perfil">Meu Perfil</a>
+            <a href="/configuracoes">Configurações</a>
+            <hr>
+            <a href="/logout">Sair</a>
+          </div>
+        </div>
       </div>
     </header>
 
-    <main>
-      <section class="welcome-section">
-        <h2>Bem-Vindo de Volta!</h2>
-        <p>Continue de onde parou ou crie um novo workspace</p>
-      </section>
+    <!-- Main Content -->
+    <main class="home-main">
+      <div class="welcome-section">
+        <h1>Bem-Vindo de Volta!</h1>
+        <p>Gerencie suas tarefas de forma eficiente.</p>
+      </div>
 
-      <section class="recent-boards">
-        <h3 class="section-title">Workspaces Recentes</h3>
-        <div class="boards-grid">
-          <div class="board-card">
-            <h3>Projeto Website</h3>
-            <p>Atualizado há 2 dias</p>
-          </div>
-          <div class="board-card">
-            <h3>Tarefas Pessoais</h3>
-            <p>Atualizado há 5 dias</p>
-          </div>
-          <div class="board-card">
-            <h3>Planejamento Mensal</h3>
-            <p>Atualizado há 1 semana</p>
+      <!-- Search and New Workspace -->
+      <div class="workspace-controls">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input 
+            type="text" 
+            placeholder="Buscar workspaces" 
+            class="search-input"
+            id="workspace-search"
+          >
+        </div>
+        <button class="btn-new-workspace">
+          <i class="fas fa-plus"></i>
+          Novo Workspace
+        </button>
+      </div>
+
+      <!-- Workspaces Section -->
+      <section class="workspaces-section">
+        <h2>Meus Workspaces</h2>
+        
+        <div class="workspaces-container" id="workspaces-list">
+          <!-- Estado vazio -->
+          <div class="empty-state">
+            <div class="empty-icon">
+              <i class="fas fa-folder-open"></i>
+            </div>
+            <p>Você ainda não possui workspaces a serem exibidos</p>
+            <button class="btn-create-first" onclick="openNewWorkspaceModal()">
+              Criar meu primeiro workspace
+            </button>
           </div>
         </div>
       </section>
-
-      <section>
-        <h3 class="section-title">Criar Novo Workspace</h3>
-        <a href="/workspace/novo" class="btn">Criar workspace</a>
-      </section>
     </main>
   </div>
+
+  <!-- Modal para Novo Workspace -->
+  <div class="modal-overlay" id="newWorkspaceModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Novo Workspace</h3>
+        <button class="modal-close" onclick="closeNewWorkspaceModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="newWorkspaceForm">
+          <div class="input-group">
+            <label for="workspaceName">Nome do Workspace</label>
+            <input 
+              type="text" 
+              id="workspaceName" 
+              name="workspaceName" 
+              placeholder="Digite o nome do workspace"
+              required
+            >
+          </div>
+          <div class="input-group">
+            <label for="workspaceDescription">Descrição (opcional)</label>
+            <textarea 
+              id="workspaceDescription" 
+              name="workspaceDescription" 
+              placeholder="Descreva o propósito deste workspace"
+              rows="3"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel" onclick="closeNewWorkspaceModal()">
+          Cancelar
+        </button>
+        <button type="submit" form="newWorkspaceForm" class="btn-create">
+          Criar Workspace
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/home.js"></script>
 </body>
 </html>

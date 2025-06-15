@@ -3,84 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workspace - Kanban</title>
-  <link rel="stylesheet" href="/css/styles.css">
+  <title><%= (typeof workspace !== 'undefined' && workspace.name) ? workspace.name : 'Workspace' %> - Planeja.Ai</title>
+  <link rel="stylesheet" href="/css/workspace.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <div class="logo">
-        <img src="/images/logo.png" alt="Kanban Logo">
+  <div class="workspace-container">
+    <!-- Header -->
+    <header class="workspace-header">
+      <div class="logo-section">
+        <div class="logo-icon">
+          <i class="fas fa-clipboard-list"></i>
+        </div>
+        <span class="logo-text">PLANEJA.AI</span>
       </div>
-      <div class="user-menu">
-        <button class="icon-button">
-          <i class="fas fa-search"></i>
-        </button>
-        <button class="icon-button">
+      
+      <div class="header-actions">
+        <a href="/home" class="back-to-home-btn" title="Voltar para Home">
+          <i class="fas fa-arrow-left"></i>
+          <span>Voltar</span>
+        </a>
+        <button class="notification-btn" title="Notificações">
           <i class="fas fa-bell"></i>
+          <span class="notification-badge">3</span>
         </button>
-        <button class="icon-button">
-          <i class="fas fa-user-circle"></i>
-        </button>
+        <div class="user-menu">
+          <button class="user-btn" title="Perfil do usuário">
+            <i class="fas fa-user"></i>
+          </button>
+          <div class="user-dropdown">
+            <a href="/perfil">Meu Perfil</a>
+            <a href="/configuracoes">Configurações</a>
+            <hr>
+            <a href="/logout">Sair</a>
+          </div>
+        </div>
       </div>
     </header>
 
-    <main>
-      <div class="workspace-header">
-        <div>
-          <h2 class="workspace-title">Nome do seu workspace</h2>
-          <p class="workspace-subtitle">Organize suas tarefas e projetos</p>
+    <!-- Main Content -->
+    <main class="workspace-main">
+      <!-- Workspace Info -->
+      <div class="workspace-info">
+        <div class="workspace-header-content">
+          <div class="workspace-title-section">
+            <h1><%= (typeof workspace !== 'undefined' && workspace.name) ? workspace.name : 'Nome do Workspace' %></h1>
+            <div class="workspace-meta">
+              <span class="workspace-description">
+                <%= (typeof workspace !== 'undefined' && workspace.description) ? workspace.description : 'Descrição' %>
+              </span>
+              <span class="workspace-date">
+                criado em: <%= (typeof workspace !== 'undefined' && workspace.createdAt) ? workspace.createdAt : new Date().toLocaleDateString('pt-BR') %>
+              </span>
+            </div>
+          </div>
+          <a href="/home" class="back-btn-mobile">
+            <i class="fas fa-arrow-left"></i>
+            Voltar para Home
+          </a>
         </div>
-        <button class="btn">
-          <i class="fas fa-plus"></i> Nova Tarefa
-        </button>
       </div>
 
+      <!-- Kanban Board -->
       <div class="kanban-board">
-        <div class="kanban-column">
+        <div class="kanban-column" data-status="todo">
           <div class="column-header">
-            <span>A Fazer</span>
-            <span><i class="fas fa-ellipsis-h"></i></span>
+            <h3>A fazer</h3>
+            <button class="add-task-btn" onclick="openAddTaskModal('todo')">
+              <i class="fas fa-plus"></i>
+            </button>
           </div>
-          <div class="task-card">
-            <h4>Criar wireframes</h4>
-            <p>Desenvolver os wireframes iniciais para o novo projeto</p>
-          </div>
-          <div class="task-card">
-            <h4>Pesquisar concorrentes</h4>
-            <p>Analisar as soluções dos concorrentes</p>
+          <div class="tasks-container" id="todo-tasks">
+            <!-- Tasks serão carregadas aqui -->
           </div>
         </div>
 
-        <div class="kanban-column">
+        <div class="kanban-column" data-status="doing">
           <div class="column-header">
-            <span>Em andamento</span>
-            <span><i class="fas fa-ellipsis-h"></i></span>
+            <h3>Em andamento</h3>
+            <button class="add-task-btn" onclick="openAddTaskModal('doing')">
+              <i class="fas fa-plus"></i>
+            </button>
           </div>
-          <div class="task-card">
-            <h4>Desenvolver protótipo</h4>
-            <p>Criar o protótipo funcional baseado nos wireframes</p>
+          <div class="tasks-container" id="doing-tasks">
+            <!-- Tasks serão carregadas aqui -->
           </div>
         </div>
 
-        <div class="kanban-column">
+        <div class="kanban-column" data-status="done">
           <div class="column-header">
-            <span>Concluído</span>
-            <span><i class="fas fa-ellipsis-h"></i></span>
+            <h3>Concluído</h3>
+            <button class="add-task-btn" onclick="openAddTaskModal('done')">
+              <i class="fas fa-plus"></i>
+            </button>
           </div>
-          <div class="task-card">
-            <h4>Definir requisitos</h4>
-            <p>Documentar todos os requisitos do projeto</p>
-          </div>
-          <div class="task-card">
-            <h4>Reunião inicial</h4>
-            <p>Realizar kickoff do projeto com a equipe</p>
+          <div class="tasks-container" id="done-tasks">
+            <!-- Tasks serão carregadas aqui -->
           </div>
         </div>
       </div>
     </main>
   </div>
 
+  <!-- Modal para Nova Tarefa -->
+  <div class="modal-overlay" id="addTaskModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Nova Tarefa</h3>
+        <button class="modal-close" onclick="closeAddTaskModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="addTaskForm">
+          <input type="hidden" id="taskStatus" name="status">
+          <input type="hidden" name="workspaceId" value="<%= (typeof workspace !== 'undefined' && workspace.id) ? workspace.id : '' %>">
+          
+          <div class="input-group">
+            <label for="taskTitle">Título da Tarefa</label>
+            <input 
+              type="text" 
+              id="taskTitle" 
+              name="title" 
+              placeholder="Digite o título da tarefa"
+              required
+            >
+          </div>
+          
+          <div class="input-group">
+            <label for="taskDescription">Descrição (opcional)</label>
+            <textarea 
+              id="taskDescription" 
+              name="description" 
+              placeholder="Descreva a tarefa"
+              rows="3"
+            ></textarea>
+          </div>
+          
+          <div class="input-group">
+            <label for="taskPriority">Prioridade</label>
+            <select id="taskPriority" name="priority">
+              <option value="low">Baixa</option>
+              <option value="medium" selected>Média</option>
+              <option value="high">Alta</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel" onclick="closeAddTaskModal()">
+          Cancelar
+        </button>
+        <button type="submit" form="addTaskForm" class="btn-create">
+          Criar Tarefa
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script com dados do workspace -->
 </body>
 </html>

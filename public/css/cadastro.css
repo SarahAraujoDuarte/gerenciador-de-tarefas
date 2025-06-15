@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.cadastro-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadastro-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Ícone do usuário */
+.user-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #1E3B8A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 4px 15px rgba(43, 92, 230, 0.2);
+}
+
+.user-icon i {
+    font-size: 32px;
+    color: white;
+}
+
+/* Cabeçalho */
+.cadastro-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1E3B8A;
+    margin-bottom: 10px;
+}
+
+.cadastro-header .subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 40px;
+}
+
+/* Seção do formulário */
+.cadastro-form-section h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+/* Formulário */
+.cadastro-form {
+    text-align: left;
+}
+
+/* Linha de inputs (Nome e Sobrenome lado a lado) */
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-row .input-group {
+    margin-bottom: 0;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #6c757d;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #1E3B8A;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(43, 92, 230, 0.1);
+}
+
+.input-wrapper input::placeholder {
+    color: #adb5bd;
+    font-size: 0.9rem;
+}
+
+/* Botão de cadastro */
+.btn-cadastro {
+    width: 100%;
+    background-color: #1E3B8A;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(43, 92, 230, 0.3);
+}
+
+.btn-cadastro:hover {
+    background-color: #1E3B8A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(43, 92, 230, 0.4);
+}
+
+.btn-cadastro:active {
+    transform: translateY(0);
+}
+
+/* Footer do cadastro */
+.cadastro-footer {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.cadastro-footer p {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.cadastro-footer a {
+    color: #1E3B8A;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cadastro-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .cadastro-card {
+        padding: 30px 25px;
+    }
+    
+    .user-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 25px;
+    }
+    
+    .user-icon i {
+        font-size: 28px;
+    }
+    
+    .cadastro-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .cadastro-form-section h2 {
+        font-size: 1.2rem;
+    }
+    
+    /* Em telas menores, empilhar os campos nome e sobrenome */
+    .input-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .input-row .input-group {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cadastro-card {
+        padding: 25px 20px;
+    }
+    
+    .user-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .user-icon i {
+        font-size: 24px;
+    }
+    
+    .cadastro-header h1 {
+        font-size: 1.4rem;
+    }
+    
+    .input-wrapper input {
+        padding: 10px 12px 10px 40px;
+        font-size: 0.9rem;
+    }
+    
+    .input-icon {
+        left: 12px;
+        font-size: 14px;
+    }
+    
+    .btn-cadastro {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}
+
+/* Estados de erro para validação futura */
+.input-wrapper.error input {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.input-wrapper.error .input-icon {
+    color: #dc3545;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.input-wrapper.error + .error-message {
+    display: block;
+}
+
+/* Validação de força da senha (para implementação futura) */
+.password-strength {
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+.password-strength.weak {
+    color: #dc3545;
+}
+
+.password-strength.medium {
+    color: #ffc107;
+}
+
+.password-strength.strong {
+    color: #28a745;
+}
