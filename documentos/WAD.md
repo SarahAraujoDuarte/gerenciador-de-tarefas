@@ -268,7 +268,7 @@ O frontend do sistema foi desenvolvido utilizando HTML, CSS e JavaScript, com te
 
 ### 3.1 Demonstração do Sistema Web (Semana 8)
 
-*VIDEO: Insira o link do vídeo demonstrativo nesta seção*
+Vídeo de demonstração: https://drive.google.com/drive/folders/19w-Gy0eVCmaL7j6cC29At8FhrCNN45Ix?usp=sharing
 
 O sistema web foi desenvolvido utilizando uma arquitetura baseada em Node.js para o backend, com Express.js para gerenciamento de rotas e APIs RESTful, e PostgreSQL como banco de dados relacional. O frontend foi construído com templates EJS integrados ao servidor, utilizando HTML, CSS e JavaScript para criar uma interface responsiva e intuitiva.
 
