@@ -3,7 +3,7 @@ console.log('>>> frontRoutes foi carregado!');
 const express = require('express');
 const router = express.Router();
 
-router.get('/landing', (req, res) => {
+router.get('/', (req, res) => {
   console.log('>>> Entrou na rota /landing');
   res.render('landing');
 });

@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS users (
 ); 
 
 
-
 CREATE TABLE IF NOT EXISTS categorias (
   id SERIAL PRIMARY KEY,
   nome TEXT NOT NULL,

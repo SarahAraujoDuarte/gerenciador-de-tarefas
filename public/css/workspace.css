@@ -34,23 +34,10 @@ body {
     gap: 12px;
 }
 
-.logo-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #2B5CE6;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 18px;
-}
-
-.logo-text {
-    font-size: 18px;
-    font-weight: 700;
-    color: #2B5CE6;
-    letter-spacing: 0.5px;
+.logo img {
+   max-height: 150px;
+    height: auto;
+    width: auto;
 }
 
 .header-actions {
@@ -99,7 +86,7 @@ body {
 
 .notification-btn:hover {
     background-color: #f8f9fa;
-    color: #2B5CE6;
+    color: #1E3A8A;
 }
 
 .notification-badge {
@@ -123,7 +110,7 @@ body {
 .user-btn {
     width: 40px;
     height: 40px;
-    background-color: #2B5CE6;
+    background-color: #1E3A8A;
     border: none;
     border-radius: 50%;
     color: white;
@@ -133,7 +120,7 @@ body {
 }
 
 .user-btn:hover {
-    background-color: #1e4bd1;
+    background-color: #1E3A8A;
     transform: translateY(-1px);
 }
 
@@ -231,7 +218,7 @@ body {
     display: none;
     align-items: center;
     gap: 8px;
-    background-color: #2B5CE6;
+    background-color: #1E3A8A;
     color: white;
     text-decoration: none;
     padding: 10px 20px;
@@ -243,7 +230,7 @@ body {
 }
 
 .back-btn-mobile:hover {
-    background-color: #1e4bd1;
+    background-color: #1E3A8A;
     transform: translateY(-1px);
 }
 
@@ -286,7 +273,7 @@ body {
 .add-task-btn {
     width: 32px;
     height: 32px;
-    background-color: #2B5CE6;
+    background-color: #1E3A8A;
     border: none;
     border-radius: 6px;
     color: white;
@@ -299,7 +286,7 @@ body {
 }
 
 .add-task-btn:hover {
-    background-color: #1e4bd1;
+    background-color: #1E3A8A;
     transform: scale(1.05);
 }
 
@@ -468,7 +455,7 @@ body {
 .input-group textarea:focus,
 .input-group select:focus {
     outline: none;
-    border-color: #2B5CE6;
+    border-color: #1E3A8A;
     box-shadow: 0 0 0 3px rgba(43, 92, 230, 0.1);
 }
 
@@ -502,7 +489,7 @@ body {
 }
 
 .btn-create {
-    background-color: #2B5CE6;
+    background-color: #1E3A8A;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -514,7 +501,7 @@ body {
 }
 
 .btn-create:hover {
-    background-color: #1e4bd1;
+    background-color: #1E3A8A;
 }
 
 /* Responsive Design */

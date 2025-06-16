@@ -1,6 +1,20 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const session = require('express-session');
+const workspaceRoutes = require('./routes/workspacesRoutes');
+
+app.use('/workspaces', workspaceRoutes);
+
+app.use(session({
+  secret: 'planeja_ai_super_secreto', // use uma string segura e única
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const apiRoutes = require('./routes');                 
 const frontRoutes = require('./routes/frontRoutes');   
@@ -8,6 +22,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));       
 app.use(express.static('public'));  
                
+const authRoutes = require('./routes/authRoutes');
+app.use('/', authRoutes);
+
+function verificarAutenticacao(req, res, next) {
+  if (req.session && req.session.userId) {
+    return next(); // usuário autenticado, segue para a rota
+  } else {
+    return res.redirect('/login'); // se não estiver logado, redireciona
+  }
+}
+app.get('/home', (req, res) => {
+  res.render('home'); 
+});
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -15,6 +42,10 @@ app.set('views', './views');
 app.use('/api', apiRoutes);
 
 app.use('/', frontRoutes);
+
+app.get('/home', verificarAutenticacao, (req, res) => {
+  res.render('home');
+});
 
 app.use((req, res) => {
   res.status(404).send('Página não encontrada!');
