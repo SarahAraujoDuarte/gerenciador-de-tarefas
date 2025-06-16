@@ -145,14 +145,47 @@ findUsersByTask(taskId): Lista todos os usuários de uma tarefa.
 
 Os wireframes foram desenvolvidos para representar a estrutura básica e a disposição dos elementos da interface do Planeja.ai, focando na organização do conteúdo e navegação. É possível visualiza-los abaixo: 
 
+<img src="../documentos/assets/página-inicial.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
+<img src="../documentos/assets/cadastro.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
+<img src="../documentos/assets/login.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
+<img src="../documentos/assets/home.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
+<img src="../documentos/assets/workspace.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
 ### 2.4. Guia de estilos
 
-O guia de estilos que pode ser visualizado na imagem abaixo, foi criado para padronizar a utilização de cores, tipografia e logo, afim de auxiliar durante o desenvolvimento dos protótipos e da plataforma.   
+O guia de estilos que pode ser visualizado na imagem abaixo, foi criado para padronizar a utilização de cores, tipografia e logo, afim de auxiliar durante o desenvolvimento dos protótipos e da plataforma. 
+
+<img src="../documentos/assets/prototipo-de-alta-página-inicial.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
+<img src="../documentos/assets/prototipo-de-alta-cadastro.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
+<img src="../documentos/assets/prototipo-de-alta-login.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
+<img src="../documentos/assets/prototipo-de-alta-home.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
+
+<img src="../documentos/assets/prototipo-de-alta-workspace.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
 
 
 ### 2.5. Protótipo de alta fidelidade 
 
 O protótipo de alta fidelidade do Planeja.ai foi criado de forma que auxilie no desenvolvimento final da plataforma, servindo como norteador, sendo crucial para uma visualização prévia do que seria a plataforma e como seria estruturada. 
+
+<img src="../documentos/assets/guia-de-estilos.png">
+<p align= "center"> Fonte: material produzido pelo autor (2025).</p>
 
 
 ### 2.6. WebAPI e endpoints 
